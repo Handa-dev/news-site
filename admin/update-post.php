@@ -9,7 +9,7 @@
         <?php
         include "config.php";
         $post_id = $_GET['id'];
-        $sql = "SELECT post.post_id, post.title, post.description, category.category_name, post.post_img FROM post 
+        $sql = "SELECT post.post_id, post.title, post.description, category.category_name, post.post_img, post.category FROM post 
         LEFT JOIN category ON post.category = category.category_id
         LEFT JOIN user ON post.author = user.user_id
         WHERE post.post_id = {$post_id}";
@@ -50,9 +50,19 @@
                                 
                                 while($row1 = mysqli_fetch_assoc($result1))
                                 {
-                                 echo "<option value ='{$row1['category_id']}'>{$row1['category_name']}</option>";
-                                 //<option value = ''> category name </option>
-                                //echo "<option>{$row['çategory_name']}</option>";
+                                 if($row['category'] ==$row1['category_id'])
+                                 {
+                                     $selected = "selected";
+
+                                 }
+                                 else
+                                 {
+                                     $selected = "";
+
+                                 }
+                                 
+                                    echo "<option {$selected} value ='{$row1['category_id']}'>{$row1['category_name']}</option>";
+                                 
                                 }
                             }
 
