@@ -44,7 +44,7 @@
                           <?php
                             include "config.php";
                             $sql1 = "SELECT * FROM category";
-                            $result1 = mysqli_query($conn,$sql) or die("query failed");
+                            $result1 = mysqli_query($conn,$sql1) or die("query failed");
                             if(mysqli_num_rows($result1) > 0)
                             {
                                 
