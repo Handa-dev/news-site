@@ -23,7 +23,7 @@
     
         ?>
         <!-- Form for show edit-->
-        <form action="" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <form action="save-update-post.php" method="POST" enctype="multipart/form-data" autocomplete="off">
             <div class="form-group">
                 <input type="hidden" name="post_id"  class="form-control" value="<?php echo $row['post_id']?>" placeholder="">
             </div>
@@ -73,7 +73,7 @@
                 <label for="">Post image</label>
                 <input type="file" name="new-image">
                 <img  src="upload/<?php echo $row['post_img']; ?>" height="150px">
-             <!--   <input type="hidden" name="old-image" value=""> -->
+             <input type="hidden" name="old-image" value="<?php echo $row['post_img']; ?>">
             </div>
             <input type="submit" name="submit" class="btn btn-primary" value="Update" />
         </form>
